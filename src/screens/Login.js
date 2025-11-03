@@ -61,6 +61,9 @@ export default class Login extends Component {
               )}>
             <Text style={styles.texto_boton}>Login</Text>
           </Pressable>
+          <Pressable onPress={() => this.props.navigation.navigate('Register')}>
+            <Text>No tengo cuenta</Text>
+          </Pressable>
         </View>
       </View>
     )
