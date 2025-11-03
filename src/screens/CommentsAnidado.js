@@ -1,11 +1,11 @@
 import { Text, View } from 'react-native'
 import React, { Component } from 'react'
 
-export default class Profile extends Component {
+export default class CommentsAnidado extends Component {
   render() {
     return (
       <View>
-        <Text>Profile</Text>
+        <Text>CommentsAnidado</Text>
       </View>
     )
   }
