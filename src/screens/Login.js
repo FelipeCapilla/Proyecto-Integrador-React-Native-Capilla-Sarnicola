@@ -35,7 +35,7 @@ export default class Login extends Component {
   render() {
     return (
       <View>
-        <Text>Login</Text>
+        <Text style={styles.titulo}>Login</Text>
         <View style={styles.contenedor}>
           <TextInput
             style={styles.input}
