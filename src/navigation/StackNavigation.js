@@ -1,13 +1,15 @@
 import { View, Text } from 'react-native'
+import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import TabNavigator from './TabNavigator'
-import React from 'react'
+
 
 const Stack = createNativeStackNavigator();
 
-const StackNavigation = () => {
-  return (
-    <Stack.Navigator>
+
+export default function StackNavigator() {
+    return (
+        <Stack.Navigator>
             <Stack.Screen
                 name='Register'
                 component={Register}
@@ -30,7 +32,5 @@ const StackNavigation = () => {
                 }}
             />
         </Stack.Navigator>
-  )
+    )
 }
-
-export default StackNavigation

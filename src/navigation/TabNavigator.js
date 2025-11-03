@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigator = () => {
+export default function TabNavigator() {
   return (
     <Tab.Navigator>
         <Tab.Screen
@@ -24,5 +24,3 @@ const TabNavigator = () => {
     </Tab.Navigator>
   )
 }
-
-export default TabNavigator
