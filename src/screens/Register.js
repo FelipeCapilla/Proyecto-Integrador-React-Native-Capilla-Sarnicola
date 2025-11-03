@@ -74,10 +74,10 @@ export default class Register extends Component {
                         )}>
                     <Text style={styles.texto_boton}>Enviar registro</Text>
                 </Pressable>
-            </View>
-            <Pressable onPress={() => this.props.navigation.navigate('Login')}>
+                <Pressable onPress={() => this.props.navigation.navigate('Login')}>
                 <Text>Ya tengo cuenta</Text>
             </Pressable>
+            </View>
         </View>
         )
     }
