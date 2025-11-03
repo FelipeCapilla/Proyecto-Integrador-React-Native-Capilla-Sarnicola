@@ -2,6 +2,7 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import TabNavigator from './TabNavigator'
 import Register from '../screens/Register'
+import Login from '../screens/Login'
 
 const Stack = createNativeStackNavigator();
 
