@@ -12,6 +12,15 @@ export default class Login extends Component {
     }
   }
 
+  componentDidMount(){
+    db.collection('users')
+    .where('owner', '==', auth.currentUser.email)
+    auth.onAuthStateChanged( user => {
+	    console.log(user)
+    })
+
+  }
+
   submit(email, password) {
     console.log('Creando usuario con los valores: ', {
       email, password
