@@ -13,10 +13,12 @@ export default class Login extends Component {
   }
 
   componentDidMount(){
-    db.collection('users')
-    .where('owner', '==', auth.currentUser.email)
     auth.onAuthStateChanged( user => {
 	    console.log(user)
+      if(user !== null){
+        this.props.navigation.navigate('TabNavigator')
+      }
+
     })
 
   }

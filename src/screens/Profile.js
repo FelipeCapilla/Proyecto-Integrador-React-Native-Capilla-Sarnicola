@@ -12,14 +12,12 @@ export default class Profile extends Component {
 
   logout(){
     auth.signOut()
+    this.props.navigation.navigate('Register')
   }
 
   render() {
     return (
       <View>
-        <Text>Soy el Usuario: {this.props.route.params.id}</Text>
-        <Text>Email del Usuario: {this.props.email}</Text>
-        
         <Pressable onPress={()=> this.logout()}>
           <Text>Log Out</Text>
         </Pressable>
