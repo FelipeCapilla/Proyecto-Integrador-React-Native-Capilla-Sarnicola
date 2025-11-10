@@ -33,7 +33,9 @@ export default class Home extends Component {
     render() {
       return (
         <View style={styles.contenedor}>
-          <Text style={styles.titulo}>Home</Text>
+          <View style={styles.header}>
+            <Text style={styles.titulo}>Home</Text>
+          </View>
           <View style={styles.formularioContainer}>
             <FlatList 
               data={this.state.postsRecuperados}
@@ -49,16 +51,24 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
   contenedor: {
     flex: 1,
-    backgroundColor: "#f5f6fa",
-    paddingHorizontal: 16,
-    paddingTop: 20,
+    backgroundColor: '#F4F4F5',
+  },
+  header: {
+    paddingTop: 50,
+    paddingBottom: 14,
+    paddingHorizontal: 18,
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 0.4,
+    borderBottomColor: '#E5E7EB',
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
   },
   titulo: {
-    fontSize: 26,
-    fontWeight: "700",
-    textAlign: "center",
-    marginBottom: 20,
-    color: "#333",
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#111827',
   },
   formularioContainer: {
     flex: 1,

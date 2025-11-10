@@ -39,23 +39,25 @@ export default class Post extends Component {
 
   render() {
     return (
-      <View>
-          <Text> {this.props.data.posteo} </Text>
-          <Text> {this.props.data.owner} </Text>
-          {
-              this.state.liked === true 
-              ?
-              <Pressable onPress={() => this.Dislike(this.props.id)}>
-                  <Text>Dislike</Text>
-              </Pressable>
-              :
-              <Pressable onPress={() => this.Like(this.props.id)}>
-                  <Text>Like</Text>
-              </Pressable>
-          }
-          <Pressable onPress={() => this.props.navigation.navigate('CommentsAnidado', {id: this.props.id})}>
-              <Text>Comentar</Text>
-          </Pressable>
+      <View style={styles.card}>
+          <Text style={styles.content}> {this.props.data.posteo} </Text>
+          <Text style={styles.username}> {this.props.data.owner} </Text>
+          <View style={styles.actionsRow}>
+            {
+                this.state.liked === true 
+                ?
+                <Pressable style={styles.actionButton} onPress={() => this.Dislike(this.props.id)}>
+                    <Text>Dislike</Text>
+                </Pressable>
+                :
+                <Pressable style={styles.actionButton} onPress={() => this.Like(this.props.id)}>
+                    <Text>🤍</Text>
+                </Pressable>
+            }
+            <Pressable style={styles.actionButton} onPress={() => this.props.navigation.navigate('CommentsAnidado', {id: this.props.id})}>
+                <Text> 💬 Comentar</Text>
+            </Pressable>
+          </View>
           <Text>{this.props.data.likes.length}</Text>
       </View>
     )
@@ -69,6 +71,38 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 20,
     color: "#333",
+  },
+  card: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 14,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    marginBottom: 10,
+    shadowColor: '#000',
+    shadowOpacity: 0.04,
+    shadowRadius: 5,
+    elevation: 1,
+  },
+  content: {
+    fontSize: 14,
+    color: '#1F2937',
+    lineHeight: 20,
+    marginTop: 2,
+    marginBottom: 8,
+  },
+  username: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#111827',
+  },
+  actionsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 18,
+  },
+  actionButton: {
+    paddingVertical: 2,
+    paddingHorizontal: 4,
   },
   contenedor: {
     flex: 1,
