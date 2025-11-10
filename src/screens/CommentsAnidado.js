@@ -1,5 +1,6 @@
-import { Text, View } from 'react-native'
+import { Text, View, TextInput, Pressable } from 'react-native'
 import React, { Component } from 'react'
+import { db, auth } from '../firebase/Config'
 
 export default class CommentsAnidado extends Component {
   constructor(props){
@@ -27,7 +28,7 @@ export default class CommentsAnidado extends Component {
         <View>
           <TextInput
             keyboardType='default'
-            placeholder='Deja tu comentario'
+            placeholder='Escribe algo'
             onChangeText={(text) => this.setState({ comentario: text })}
             value={this.state.comentario}
           />
