@@ -53,7 +53,7 @@ export default class Post extends Component {
                   <Text>Like</Text>
               </Pressable>
           }
-          <Pressable onPress={() => this.props.navigation.navigate('CommentsAnidado')}>
+          <Pressable onPress={() => this.props.navigation.navigate('CommentsAnidado', {id: this.props.id})}>
               <Text>Comentar</Text>
           </Pressable>
           <Text>{this.props.data.likes.length}</Text>
