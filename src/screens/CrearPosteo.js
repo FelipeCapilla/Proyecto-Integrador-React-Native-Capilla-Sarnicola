@@ -15,7 +15,8 @@ export default class CrearPosteo extends Component {
             db.collection('posts').add({
             owner: auth.currentUser.email,
             createdAt: Date.now(),
-            likes: descripcion
+            posteo: descripcion,
+            likes:[]
         })
         .then((resp) => this.props.navigation.navigate('TabNavigator'))
         .catch((err) => console.log('el error es: ', err))
