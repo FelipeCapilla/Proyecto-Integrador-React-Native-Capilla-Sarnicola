@@ -7,8 +7,7 @@ export default class Home extends Component {
     constructor(props){
       super(props)
       this.state = {
-        postsRecuperados: '',
-        loading: true
+        postsRecuperados: ''
       }
     }
 
@@ -23,8 +22,7 @@ export default class Home extends Component {
             data: doc.data()
           })
         this.setState({
-          postsRecuperados: posts,
-          loading: false
+          postsRecuperados: posts
         })
         })
       })

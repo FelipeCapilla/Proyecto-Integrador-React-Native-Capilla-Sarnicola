@@ -19,7 +19,7 @@ export default class CrearPosteo extends Component {
                 likes: [],
                 comentarios: []
             })
-                .then(() => this.props.navigation.navigate('TabNavigator'))
+                .then(() => this.props.navigation.navigate('StackAnidada'))
                 .catch((err) => console.log('el error es: ', err))
         }
     }

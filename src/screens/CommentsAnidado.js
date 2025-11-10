@@ -8,8 +8,8 @@ export default class CommentsAnidado extends Component {
     super(props)
     this.state = {
       comentario: '',
-      postsRecuperados:{
-        comentarios:[]
+      postsRecuperados: {
+        comentarios: []
       }
     }
   }
@@ -19,8 +19,7 @@ export default class CommentsAnidado extends Component {
     db.collection('posts')
       .doc(id)
       .onSnapshot((docs) => {
-        console.log('posts en profile',docs.data());
-
+        console.log('posts en profile', docs.data());
         this.setState({
           postsRecuperados: docs.data(),
           loading: false
@@ -33,12 +32,12 @@ export default class CommentsAnidado extends Component {
     if (descripcion !== '') {
       db.collection('posts').doc(id).update({
         comentarios: firebase.firestore.FieldValue.arrayUnion({
-          owner: auth.currentUser.email,
-          createdAt: Date.now(),
-          comentario: descripcion
+        owner: auth.currentUser.email,
+        createdAt: Date.now(),
+        comentario: descripcion
         })
       })
-        .then(() => this.setState({ comentario: '' }))
+        .then(() => this.setState({ comentario: '' }), this.props.navigation.navigate('Home'))
         .catch((err) => console.log('el error es: ', err))
     }
   }
@@ -59,13 +58,12 @@ export default class CommentsAnidado extends Component {
           <FlatList contentContainerStyle={styles.comentariosContainer}
             data={this.state.postsRecuperados.comentarios}
             keyExtractor={(item) => item.createdAt.toString()}
-            renderItem={({ item }) => 
+            renderItem={({ item }) =>
             <View style={styles.comentarioCard}>
-            <Text style={styles.comentarioTexto}>{item.comentario}</Text>
-            <Text style={styles.comentarioOwner}> {item.owner}</Text>
+              <Text style={styles.comentarioTexto}>{item.comentario}</Text>
+              <Text style={styles.comentarioOwner}> {item.owner}</Text>
             </View>}
           />
-
         </View>
       </View>
     )
