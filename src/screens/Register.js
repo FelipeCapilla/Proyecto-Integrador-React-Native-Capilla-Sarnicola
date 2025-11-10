@@ -17,7 +17,6 @@ export default class Register extends Component {
         console.log('Creando usuario con los valores: ', {
             username, email, password
         });
-
         if(
             username.length > 3 &&
             email.includes('@') &&

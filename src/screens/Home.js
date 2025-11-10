@@ -4,7 +4,6 @@ import { db, auth } from '../firebase/Config'
 import Post from '../components/Post'
 
 export default class Home extends Component {
-
     constructor(props){
       super(props)
       this.state = {
@@ -31,19 +30,18 @@ export default class Home extends Component {
       })
     }
     
-
-  render() {
-    return (
-      <View >
-        <Text style={styles.titulo}>Home</Text>
-        <FlatList 
-          data={this.state.postsRecuperados}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={( {item} ) => <Post data={item.data} id={item.id}/> }
-        />
-      </View>
-    )
-  }
+    render() {
+      return (
+        <View >
+          <Text style={styles.titulo}>Home</Text>
+          <FlatList 
+            data={this.state.postsRecuperados}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={( {item} ) => <Post data={item.data} id={item.id} navigation={this.props.navigation}/> }
+          />
+        </View>
+      )
+    }
 }
 
 const styles = StyleSheet.create({

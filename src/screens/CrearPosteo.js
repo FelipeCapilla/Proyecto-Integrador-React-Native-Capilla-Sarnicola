@@ -18,7 +18,7 @@ export default class CrearPosteo extends Component {
             posteo: descripcion,
             likes:[]
         })
-        .then((resp) => this.props.navigation.navigate('TabNavigator'))
+        .then(() => this.props.navigation.navigate('TabNavigator'))
         .catch((err) => console.log('el error es: ', err))
         }
     }

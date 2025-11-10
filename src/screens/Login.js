@@ -18,16 +18,13 @@ export default class Login extends Component {
       if(user !== null){
         this.props.navigation.navigate('TabNavigator')
       }
-
     })
-
   }
 
   submit(email, password) {
     console.log('Creando usuario con los valores: ', {
       email, password
     });
-
     if (
       email.includes('@') &&
       password.length > 6
