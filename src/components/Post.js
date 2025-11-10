@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Pressable, Text, View } from 'react-native'
+import { Pressable, Text, View, StyleSheet} from 'react-native'
 import firebase from 'firebase'
 import { db, auth } from '../firebase/Config'
 
@@ -40,24 +40,35 @@ export default class Post extends Component {
   render() {
     return (
       <View>
-        <Text> {this.props.data.posteo} </Text>
-        <Text> {this.props.data.owner} </Text>
-        {
-            this.state.liked === true 
-            ?
-            <Pressable onPress={() => this.Dislike(this.props.id)}>
-                <Text>Dislike</Text>
-            </Pressable>
-            :
-            <Pressable onPress={() => this.Like(this.props.id)}>
-                <Text>Like</Text>
-            </Pressable>
-        }
-        <Pressable onPress={() => this.props.navigation.navigate('CommentsAnidado')}>
-            <Text>Comentar</Text>
-        </Pressable>
-        <Text>{this.props.data.likes.length}</Text>
+          <Text style={styles.titulo}> {this.props.data.posteo} </Text>
+          <Text style={styles.titulo}> {this.props.data.owner} </Text>
+          {
+              this.state.liked === true 
+              ?
+              <Pressable onPress={() => this.Dislike(this.props.id)}>
+                  <Text style={styles.titulo}>Dislike</Text>
+              </Pressable>
+              :
+              <Pressable onPress={() => this.Like(this.props.id)}>
+                  <Text style={styles.titulo}>Like</Text>
+              </Pressable>
+          }
+          <Pressable onPress={() => this.props.navigation.navigate('CommentsAnidado')}>
+              <Text style={styles.titulo}>Comentar</Text>
+          </Pressable>
+          <Text style={styles.titulo}>{this.props.data.likes.length}</Text>
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  titulo: {
+    fontSize: 15,
+    fontWeight: 'bold'
+  },
+  contenedor: {
+    paddingHorizontal: 10,
+    marginTop: 20
+  }
+})

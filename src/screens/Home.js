@@ -1,4 +1,4 @@
-import { Text, View, FlatList} from 'react-native'
+import { Text, View, FlatList, StyleSheet} from 'react-native'
 import React, { Component } from 'react'
 import { db, auth } from '../firebase/Config'
 import Post from '../components/Post'
@@ -34,8 +34,8 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View>
-        <Text>Home</Text>
+      <View >
+        <Text style={styles.titulo}>Home</Text>
         <FlatList 
           data={this.state.postsRecuperados}
           keyExtractor={(item) => item.id.toString()}
@@ -45,3 +45,14 @@ export default class Home extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  titulo: {
+    fontSize: 80,
+    fontWeight: 'bold'
+  },
+  contenedor: {
+    paddingHorizontal: 10,
+    marginTop: 20
+  }
+})
