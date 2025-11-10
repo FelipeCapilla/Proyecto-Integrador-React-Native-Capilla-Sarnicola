@@ -9,7 +9,6 @@ export default class Home extends Component {
       super(props)
       this.state = {
         postsRecuperados: '',
-        posteos: '',
         loading: true
       }
     }
@@ -25,7 +24,7 @@ export default class Home extends Component {
             data: doc.data()
           })
         this.setState({
-          posteos: posts,
+          postsRecuperados: posts,
           loading: false
         })
         })
@@ -42,7 +41,6 @@ export default class Home extends Component {
           keyExtractor={(item) => item.id.toString()}
           renderItem={( {item} ) => <Post data={item.data} id={item.id}/> }
         />
-
       </View>
     )
   }
