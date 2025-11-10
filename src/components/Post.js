@@ -40,23 +40,23 @@ export default class Post extends Component {
   render() {
     return (
       <View>
-          <Text style={styles.titulo}> {this.props.data.posteo} </Text>
-          <Text style={styles.titulo}> {this.props.data.owner} </Text>
+          <Text> {this.props.data.posteo} </Text>
+          <Text> {this.props.data.owner} </Text>
           {
               this.state.liked === true 
               ?
               <Pressable onPress={() => this.Dislike(this.props.id)}>
-                  <Text style={styles.titulo}>Dislike</Text>
+                  <Text>Dislike</Text>
               </Pressable>
               :
               <Pressable onPress={() => this.Like(this.props.id)}>
-                  <Text style={styles.titulo}>Like</Text>
+                  <Text>Like</Text>
               </Pressable>
           }
           <Pressable onPress={() => this.props.navigation.navigate('CommentsAnidado')}>
-              <Text style={styles.titulo}>Comentar</Text>
+              <Text>Comentar</Text>
           </Pressable>
-          <Text style={styles.titulo}>{this.props.data.likes.length}</Text>
+          <Text>{this.props.data.likes.length}</Text>
       </View>
     )
   }
@@ -64,11 +64,16 @@ export default class Post extends Component {
 
 const styles = StyleSheet.create({
   titulo: {
-    fontSize: 15,
-    fontWeight: 'bold'
+    fontSize: 26,
+    fontWeight: "700",
+    textAlign: "center",
+    marginBottom: 20,
+    color: "#333",
   },
   contenedor: {
-    paddingHorizontal: 10,
-    marginTop: 20
+    flex: 1,
+    backgroundColor: "#f5f6fa",
+    paddingHorizontal: 16,
+    paddingTop: 20,
   }
 })

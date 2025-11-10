@@ -84,9 +84,12 @@ export default class Register extends Component {
 
 const styles = StyleSheet.create({
     titulo: {
-        fontSize: 80,
-        fontWeight: 'bold'
-    },
+        fontSize: 26,
+        fontWeight: "700",
+        textAlign: "center",
+        marginBottom: 20,
+        color: "#333",
+      },
     input: {
         borderWidth: 1,
         borderColor: '#ccc',

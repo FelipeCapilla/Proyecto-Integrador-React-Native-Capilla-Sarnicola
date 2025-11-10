@@ -32,25 +32,35 @@ export default class Home extends Component {
     
     render() {
       return (
-        <View >
+        <View style={styles.contenedor}>
           <Text style={styles.titulo}>Home</Text>
-          <FlatList 
-            data={this.state.postsRecuperados}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={( {item} ) => <Post data={item.data} id={item.id} navigation={this.props.navigation}/> }
-          />
+          <View style={styles.formularioContainer}>
+            <FlatList 
+              data={this.state.postsRecuperados}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={( {item} ) => <Post data={item.data} id={item.id} navigation={this.props.navigation}/> }
+            />
+          </View>
         </View>
       )
     }
 }
 
 const styles = StyleSheet.create({
-  titulo: {
-    fontSize: 80,
-    fontWeight: 'bold'
-  },
   contenedor: {
-    paddingHorizontal: 10,
-    marginTop: 20
+    flex: 1,
+    backgroundColor: "#f5f6fa",
+    paddingHorizontal: 16,
+    paddingTop: 20,
+  },
+  titulo: {
+    fontSize: 26,
+    fontWeight: "700",
+    textAlign: "center",
+    marginBottom: 20,
+    color: "#333",
+  },
+  formularioContainer: {
+    flex: 1,
   }
-})
+});
